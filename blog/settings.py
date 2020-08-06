@@ -15,7 +15,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1', '134.209.224.211']
 
-
+SITE_ID = 1
 # Application definition
 
 INSTALLED_APPS = [
@@ -27,6 +27,13 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.sites',
 
+    # flat pages app
+    'django.contrib.flatpages',
+
+    # django redirects app
+    'django.contrib.redirects',
+
+    # Third party
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
@@ -48,6 +55,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.contrib.redirects.middleware.RedirectFallbackMiddleware',
 ]
 
 ROOT_URLCONF = 'blog.urls'

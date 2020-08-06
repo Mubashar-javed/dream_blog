@@ -2,8 +2,13 @@ from django.db.models import Count, Q
 from django.contrib import messages
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.shortcuts import render, get_object_or_404, redirect, reverse
-from django.views.generic import View, ListView, DetailView, CreateView, UpdateView, DeleteView
-
+from django.views.generic import (View,
+                                  ListView,
+                                  DetailView,
+                                  CreateView,
+                                  UpdateView,
+                                  DeleteView
+                                  )
 from .forms import CommentForm, PostForm
 from .models import Post, Author, PostView
 from marketing.forms import EmailSignupForm
@@ -25,8 +30,7 @@ class SearchView(View):
         query = request.GET.get('q')
         if query:
             queryset = queryset.filter(
-                Q(title__icontains=query) |
-                Q(overview__icontains=query)
+                Q(title__icontains=query) | Q(overview__icontains=query)
             ).distinct()
         context = {
             'queryset': queryset
@@ -39,8 +43,7 @@ def search(request):
     query = request.GET.get('q')
     if query:
         queryset = queryset.filter(
-            Q(title__icontains=query) |
-            Q(overview__icontains=query)
+            Q(title__icontains=query) | Q(overview__icontains=query)
         ).distinct()
     context = {
         'queryset': queryset

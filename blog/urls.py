@@ -2,7 +2,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
-
+from django.contrib.flatpages import views as flat_views
 from posts.views import (
     index,
     search,
@@ -37,7 +37,10 @@ urlpatterns = [
     # path('post/<id>/delete/', post_delete, name='post-delete'),
     path('post/<pk>/delete/', PostDeleteView.as_view(), name='post-delete'),
     path('tinymce/', include('tinymce.urls')),
-    path('accounts/', include('allauth.urls'))
+    path('accounts/', include('allauth.urls')),
+
+    path('pages/', include('django.contrib.flatpages.urls')),
+
 ]
 
 if settings.DEBUG:

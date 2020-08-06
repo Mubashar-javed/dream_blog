@@ -3,3 +3,5 @@ env
 **/__pycache__
 media
 static
+db.sqlite3
+.vscode/settings.json
