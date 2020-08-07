@@ -26,21 +26,19 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites',
-
     # flat pages app
     'django.contrib.flatpages',
-
     # django redirects app
     'django.contrib.redirects',
+    'django.contrib.sitemaps',  # for sitemaps in our app
 
     # Third party
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
-
     'crispy_forms',
     'tinymce',
-
+    # local apps
     'marketing',
     'posts'
 ]
